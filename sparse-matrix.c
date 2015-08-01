@@ -2,13 +2,14 @@
 
 void represent(int r, int c, int count, int a[][c])
 {
-    int i, j, result[r * c - count + 1][3], k;
+    int nz = r * c - count;
+    int i, j, result[nz + 1][3], k;
 
     printf("Row\tColumn\tValue\n");
 
     result[0][0] = r;
     result[0][1] = c;
-    result[0][2] = r * c - count;
+    result[0][2] = nz;
     k = 1;
 
     for(i = 0; i < r; i++) {
@@ -22,7 +23,7 @@ void represent(int r, int c, int count, int a[][c])
         }
     }
 
-    for(i = 0; i < r * c - count; i++) {
+    for(i = 0; i < nz + 1; i++) {
         for(j = 0; j < 3; j++) {
             printf("%d\t", result[i][j]);
         }
