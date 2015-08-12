@@ -1,14 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
-
-struct Stack {
-    int top;
-    int capacity;
-    int* array;
-};
-
-typedef struct Stack Stack;
+#include "stack.h"
 
 Stack* createStack(int capacity)
 {
@@ -16,6 +9,7 @@ Stack* createStack(int capacity)
     stack->capacity = capacity;
     stack->top = -1;
     stack->array = (int *)malloc(stack->capacity * sizeof(int));
+    return stack;
 }
 
 int isFull(Stack* stack)
