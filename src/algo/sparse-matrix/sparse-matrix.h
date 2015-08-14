@@ -1,0 +1,1 @@
+void represent(int r, int c, int count, int a[][c]);
