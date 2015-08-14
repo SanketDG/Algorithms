@@ -1,7 +1,4 @@
 # Make Output
-stack
-sparse-matrix
-prog
 *.o
 
 # Input files
