@@ -17,6 +17,7 @@ To clean all output files, `make clean`.
 
 ## Stack
 * Stack Menu Program > `make stack-menu`
+* Infix to Postfix conversion > `make infix2postfix`
 
 ## Sparse Matrix
 * Sparse Matrix Representation > `make sparse-matrix`

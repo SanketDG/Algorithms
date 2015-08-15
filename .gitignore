@@ -2,6 +2,7 @@
 *.o
 stack-menu
 sparse
+infix2postfix
 
 # Input files
 *.in

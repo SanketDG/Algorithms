@@ -2,7 +2,7 @@ TARGET = prog
 LIBS = -lm
 CC = gcc
 CFLAGS = -g -Wall
-SRCDIR = ./src
+SRCDIR = src
 
 .PHONY: default all clean
 
@@ -16,6 +16,10 @@ STACK = $(CC) -c $(SRCDIR)/ds/stack/stack.c
 stack-menu:
 	$(STACK)
 	$(CC) stack.o $(SRCDIR)/ds/stack/stack-menu.c -o stack-menu
+
+infix2postfix:
+	$(STACK)
+	$(CC) stack.o $(SRCDIR)/ds/stack/infix2postfix.c -o infix2postfix
 
 sparse-matrix:
 	$(CC) -c $(SRCDIR)/algo/sparse-matrix/sparse-matrix.c
@@ -36,3 +40,4 @@ clean:
 	-rm -f *.o
 	-rm -f stack-menu
 	-rm -f sparse
+	-rm -f infix2postfix
