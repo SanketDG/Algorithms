@@ -9,9 +9,13 @@ SRCDIR = ./src
 # default: $(TARGET)
 # all: default
 
-stack:
-	$(CC) -c $(SRCDIR)/ds/stack/stack.c
-	$(CC) stack.o $(SRCDIR)/ds/stack/stack-main.c -o stack
+STACK = $(CC) -c $(SRCDIR)/ds/stack/stack.c
+
+# STACK algorithms
+
+stack-menu:
+	$(STACK)
+	$(CC) stack.o $(SRCDIR)/ds/stack/stack-menu.c -o stack-menu
 
 sparse-matrix:
 	$(CC) -c $(SRCDIR)/algo/sparse-matrix/sparse-matrix.c
@@ -30,6 +34,5 @@ sparse-matrix:
 
 clean:
 	-rm -f *.o
-	-rm -f $(TARGET)
-	-rm -f stack
+	-rm -f stack-menu
 	-rm -f sparse

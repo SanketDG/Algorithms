@@ -7,11 +7,16 @@ This is a collection of standard algorithms and data structures written in C.
 Every algorithm has its own menu based program, which can be compiled by the `make` command.
 
 ```shell
-make stack
-./stack
+make stack-menu
+./stack-menu
 ```
 
-# Current Algorithms
+To clean all output files, `make clean`.
 
-* Stack > `make stack`
+# Current Implementations
+
+## Stack
+* Stack Menu Program > `make stack-menu`
+
+## Sparse Matrix
 * Sparse Matrix Representation > `make sparse-matrix`
