@@ -39,6 +39,17 @@ int pop(Stack* stack)
         return stack->array[stack->top--];
 }
 
+int peek(Stack* stack)
+{
+    if(isEmpty(stack)) {
+        printf("\n\nERROR: Stack underflow\n");
+        return -1;
+    }
+    else {
+        return stack->array[stack->top];
+    }
+}
+
 void display(Stack* stack)
 {
     int i;
