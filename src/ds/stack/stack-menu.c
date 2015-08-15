@@ -6,7 +6,7 @@ int main(void)
 {
     Stack* stack = createStack(100);
 
-    int n, x;
+    int n, x, popped;
 
     printf("===STACK PROGRAM===\n");
 
@@ -23,7 +23,10 @@ int main(void)
                 break;
             }
             case 2: {
-                pop(stack);
+                popped = pop(stack);
+                if (popped != -1) {
+                    printf("\nElement popped: %d", popped);
+                }
                 break;
             }
             case 3: {

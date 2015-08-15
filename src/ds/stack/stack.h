@@ -8,5 +8,5 @@ Stack* createStack(int capacity);
 int isFull(Stack* stack);
 int isEmpty(Stack* stack);
 void push(Stack* stack, int item);
-void pop(Stack* stack);
+int pop(Stack* stack);
 void display(Stack* stack);

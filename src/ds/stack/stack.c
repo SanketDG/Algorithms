@@ -24,18 +24,19 @@ int isEmpty(Stack* stack)
 void push(Stack* stack, int item)
 {
     if(isFull(stack))
-        printf("\n\nStack overflow\n");
+        printf("\n\nERROR: Stack overflow\n");
     else
         stack->array[++stack->top] = item;
 }
 
-void pop(Stack* stack)
+int pop(Stack* stack)
 {
     if(isEmpty(stack)) {
-        printf("\n\nStack underflow\n");
+        printf("\n\nERROR: Stack underflow\n");
+        return -1;
     }
     else
-        printf("\nElement popped: %d", stack->array[stack->top--]);
+        return stack->array[stack->top--];
 }
 
 void display(Stack* stack)
