@@ -1,5 +1,7 @@
 # Make Output
 *.o
+stack-menu
+sparse
 
 # Input files
 *.in
