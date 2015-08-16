@@ -13,15 +13,19 @@ STACK = $(CC) -c $(SRCDIR)/ds/stack/stack.c
 
 # STACK algorithms
 
-stack-menu:
+stack-menu: $(SRCDIR)/ds/stack/stack-menu.c
 	$(STACK)
 	$(CC) stack.o $(SRCDIR)/ds/stack/stack-menu.c -o stack-menu
 
-infix2postfix:
+infix2postfix: $(SRCDIR)/ds/stack/infix2postfix.c
 	$(STACK)
 	$(CC) stack.o $(SRCDIR)/ds/stack/infix2postfix.c -o infix2postfix
 
-sparse-matrix:
+postfix-eval: $(SRCDIR)/ds/stack/postfix-eval.c
+	$(STACK)
+	$(CC) stack.o $(SRCDIR)/ds/stack/postfix-eval.c -o postfix-eval
+
+sparse-matrix: $(SRCDIR)/algo/sparse-matrix/sparse-main.c
 	$(CC) -c $(SRCDIR)/algo/sparse-matrix/sparse-matrix.c
 	$(CC) sparse-matrix.o $(SRCDIR)/algo/sparse-matrix/sparse-main.c -o sparse
 
@@ -41,3 +45,4 @@ clean:
 	-rm -f stack-menu
 	-rm -f sparse
 	-rm -f infix2postfix
+	-rm -f postfix-eval
