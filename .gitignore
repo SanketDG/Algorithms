@@ -3,6 +3,7 @@
 stack-menu
 sparse
 infix2postfix
+postfix-eval
 
 # Input files
 *.in
