@@ -1,4 +1,3 @@
-TARGET = prog
 LIBS = -lm
 CC = gcc
 CFLAGS = -g -Wall
@@ -9,25 +8,26 @@ SRCDIR = src
 # default: $(TARGET)
 # all: default
 
-STACK = $(CC) -c $(SRCDIR)/ds/stack/stack.c
-
 # STACK algorithms
 
-stack-menu: $(SRCDIR)/ds/stack/stack-menu.c
-	$(STACK)
-	$(CC) stack.o $(SRCDIR)/ds/stack/stack-menu.c -o stack-menu
+STACK = $(SRCDIR)/ds/stack
 
-infix2postfix: $(SRCDIR)/ds/stack/infix2postfix.c
-	$(STACK)
-	$(CC) stack.o $(SRCDIR)/ds/stack/infix2postfix.c -o infix2postfix
+# $(STACK)/stack.o: $(STACK)/stack.c $(STACK)/stack.h
+# 	$(CC) -c -o $@ $< -I$(STACK)
 
-postfix-eval: $(SRCDIR)/ds/stack/postfix-eval.c
-	$(STACK)
-	$(CC) stack.o $(SRCDIR)/ds/stack/postfix-eval.c -o postfix-eval
+stack-menu: $(STACK)/stack.o
+	$(CC) -o $@ $^ $(STACK)/$@.c -I$(STACK)
 
-sparse-matrix: $(SRCDIR)/algo/sparse-matrix/sparse-main.c
-	$(CC) -c $(SRCDIR)/algo/sparse-matrix/sparse-matrix.c
-	$(CC) sparse-matrix.o $(SRCDIR)/algo/sparse-matrix/sparse-main.c -o sparse
+infix2postfix: $(STACK)/stack.o
+	$(CC) -o $@ $^ $(STACK)/$@.c -I$(STACK)
+
+postfix-eval: $(STACK)/stack.o
+	$(CC) -o $@ $^ $(STACK)/$@.c -I$(STACK)
+
+SPARSE = $(SRCDIR)/algo/sparse-matrix
+
+sparse-matrix: $(SPARSE)/sparse-matrix.o
+	$(CC) -o $@ $^ $(SPARSE)/sparse-main.c -I$(SPARSE)
 
 # OBJECTS = $(patsubst %.c, %.o, $(wildcard *.c))
 # HEADERS = $(wildcard *.h)
@@ -41,6 +41,7 @@ sparse-matrix: $(SRCDIR)/algo/sparse-matrix/sparse-main.c
 # 	$(CC) $(OBJECTS) -Wall $(LIBS) -o $@
 
 clean:
+	find . -name "*.o" -type f -delete
 	-rm -f *.o
 	-rm -f stack-menu
 	-rm -f sparse

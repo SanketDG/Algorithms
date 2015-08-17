@@ -9,8 +9,11 @@ int evaluatePostfix(char* exp)
     int i;
 
     if(!stack)
+    {
         printf("Failed to initialize stack."); // check to stack if created successfully
         exit(-1);
+    }
+
     for(i=0; exp[i] != '\0' ; ++i)
     {
         if(isdigit(exp[i]))
