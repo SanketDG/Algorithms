@@ -1,6 +1,7 @@
 # Make Output
 *.o
 stack-menu
+queue-menu
 sparse
 infix2postfix
 postfix-eval

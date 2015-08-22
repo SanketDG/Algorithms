@@ -20,5 +20,8 @@ To clean all output files, `make clean`.
 * Infix to Postfix conversion > `make infix2postfix`
 * Evaluate Postfix expression > `make postfix-eval`
 
+## Queue
+* Queue Menu Program > `make queue-menu`
+
 ## Sparse Matrix
 * Sparse Matrix Representation > `make sparse-matrix`

@@ -28,7 +28,7 @@ int isEmpty(Queue* queue) {
 
 void enqueue(Queue* queue, int item) {
     if (isFull(queue))
-        print("\nQueue Overflow\n");
+        printf("\nQueue Overflow\n");
     else {
         queue->rear = (queue->rear + 1) % queue->maxsize;
         queue->array[queue->rear] = item;
@@ -48,3 +48,9 @@ int dequeue(Queue* queue)
     return item;
 }
 
+void display(Queue* queue)
+{
+    int i;
+    for(i = queue->front; i < queue->rear; i++)
+        printf("%d ", queue->array[i]);
+}

@@ -24,6 +24,11 @@ infix2postfix: $(STACK)/stack.o
 postfix-eval: $(STACK)/stack.o
 	$(CC) -o $@ $^ $(STACK)/$@.c -I$(STACK)
 
+QUEUE = $(SRCDIR)/ds/queue
+
+queue-menu: $(QUEUE)/queue.h
+	$(CC) -o $@ $^ $(QUEUE)/$@.c -I$(QUEUE)
+
 SPARSE = $(SRCDIR)/algo/sparse-matrix
 
 sparse-matrix: $(SPARSE)/sparse-matrix.o
