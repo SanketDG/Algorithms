@@ -24,6 +24,8 @@ infix2postfix: $(STACK)/stack.o
 postfix-eval: $(STACK)/stack.o
 	$(CC) -o $@ $^ $(STACK)/$@.c -I$(STACK)
 
+# Queue Algorithms
+
 QUEUE = $(SRCDIR)/ds/queue
 
 queue-menu: $(QUEUE)/queue.h
@@ -46,9 +48,10 @@ sparse-matrix: $(SPARSE)/sparse-matrix.o
 # 	$(CC) $(OBJECTS) -Wall $(LIBS) -o $@
 
 clean:
-	find . -name "*.o" -type f -delete
+	-find . -name "*.o" -type f -delete
 	-rm -f *.o
 	-rm -f stack-menu
 	-rm -f sparse
 	-rm -f infix2postfix
 	-rm -f postfix-eval
+	-rm -f queue-menu

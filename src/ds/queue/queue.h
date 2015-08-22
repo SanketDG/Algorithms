@@ -51,6 +51,6 @@ int dequeue(Queue* queue)
 void display(Queue* queue)
 {
     int i;
-    for(i = queue->front; i < queue->rear; i++)
+    for(i = queue->front; i <= queue->rear; i++)
         printf("%d ", queue->array[i]);
 }
