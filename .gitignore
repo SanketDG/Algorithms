@@ -5,6 +5,7 @@ queue-menu
 sparse
 infix2postfix
 postfix-eval
+strrev
 
 # Input files
 *.in

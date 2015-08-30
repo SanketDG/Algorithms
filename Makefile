@@ -24,6 +24,9 @@ infix2postfix: $(STACK)/stack.o
 postfix-eval: $(STACK)/stack.o
 	$(CC) -o $@ $^ $(STACK)/$@.c -I$(STACK)
 
+strrev: $(STACK)/stack.o
+	$(CC) -o $@ $^ $(STACK)/$@.c -I$(STACK)
+
 # Queue Algorithms
 
 QUEUE = $(SRCDIR)/ds/queue

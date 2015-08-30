@@ -19,6 +19,7 @@ To clean all output files, `make clean`.
 * Stack Menu Program > `make stack-menu`
 * Infix to Postfix conversion > `make infix2postfix`
 * Evaluate Postfix expression > `make postfix-eval`
+* Reverse a string > `make strrev`
 
 ## Queue
 * Queue Menu Program > `make queue-menu`
