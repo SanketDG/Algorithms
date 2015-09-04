@@ -3,8 +3,7 @@
 #include <limits.h>
 
 typedef struct{
-    int front, rear, size;
-    int maxsize;
+    int front, rear, maxsize;
     int* array;
 }Queue;
 
@@ -12,39 +11,43 @@ Queue* createQueue(int maxsize)
 {
     Queue* queue = (Queue*)malloc(sizeof(Queue));
     queue->maxsize = maxsize;
-    queue->front = queue->size = 0;
-    queue->rear = maxsize - 1;
+    queue->front = queue->rear = -1;
     queue->array = (int*)malloc(queue->maxsize * sizeof(int));
     return queue;
 }
 
 int isFull(Queue* queue) {
-    return (queue->size == queue->maxsize);
+    return (queue->rear == queue->maxsize - 1);
 }
 
 int isEmpty(Queue* queue) {
-    return (queue->size == 0);
+    return (queue->front == -1);
 }
 
 void enqueue(Queue* queue, int item) {
     if (isFull(queue))
         printf("\nQueue Overflow\n");
     else {
-        queue->rear = (queue->rear + 1) % queue->maxsize;
-        queue->array[queue->rear] = item;
-        queue->size = queue->size + 1;
+        if ((queue->front == -1) && (queue->rear == -1))
+            queue->front = 0;
+        queue->array[++queue->rear] = item;
     }
 }
 
 int dequeue(Queue* queue)
 {
+    int item;
     if(isEmpty(queue)) {
         printf("\nQueue Underflow\n");
         return INT_MIN;
     }
-    int item = queue->array[queue->front];
-    queue->front = (queue->front + 1) % queue->maxsize;
-    queue->size = queue->size - 1;
+    item = queue->array[queue->front];
+    if(queue->front == queue->rear) {
+        queue->front = -1;
+        queue->rear = -1;
+    }
+    else
+        queue->front++;
     return item;
 }
 
