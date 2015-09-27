@@ -26,3 +26,6 @@ To clean all output files, `make clean`.
 
 ## Sparse Matrix
 * Sparse Matrix Representation > `make sparse-matrix`
+
+## Tower of Hanoi
+* Tower of Hanoi > `make toh`

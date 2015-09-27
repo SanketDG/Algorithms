@@ -12,9 +12,6 @@ SRCDIR = src
 
 STACK = $(SRCDIR)/ds/stack
 
-# $(STACK)/stack.o: $(STACK)/stack.c $(STACK)/stack.h
-# 	$(CC) -c -o $@ $< -I$(STACK)
-
 stack-menu: $(STACK)/stack.o
 	$(CC) -o $@ $^ $(STACK)/$@.c -I$(STACK)
 
@@ -34,21 +31,17 @@ QUEUE = $(SRCDIR)/ds/queue
 queue-menu: $(QUEUE)/queue.h
 	$(CC) -o $@ $^ $(QUEUE)/$@.c -I$(QUEUE)
 
+# Sparse Matrix Representation
+
 SPARSE = $(SRCDIR)/algo/sparse-matrix
 
 sparse-matrix: $(SPARSE)/sparse-matrix.o
 	$(CC) -o $@ $^ $(SPARSE)/sparse-main.c -I$(SPARSE)
 
-# OBJECTS = $(patsubst %.c, %.o, $(wildcard *.c))
-# HEADERS = $(wildcard *.h)
+# Tower of Hanoi
 
-# %.o: %.c $(HEADERS)
-# 	$(CC) $(CFLAGS) -c $< -o $@
-
-# .PRECIOUS: $(TARGET) $(OBJECTS)
-
-# $(TARGET): $(OBJECTS)
-# 	$(CC) $(OBJECTS) -Wall $(LIBS) -o $@
+toh:
+	$(CC) $(SRCDIR)/algo/tower_of_hanoi/tower_of_hanoi.c -o $@
 
 clean:
 	-find . -name "*.o" -type f -delete
@@ -58,3 +51,5 @@ clean:
 	-rm -f infix2postfix
 	-rm -f postfix-eval
 	-rm -f queue-menu
+	-rm -f strrev
+	-rm -f toh
