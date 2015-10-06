@@ -9,4 +9,5 @@ Every algorithm/data-structure has its own README with `make` instructions.
 # List of Algorithms and Data Structures
 
 [Stack](data-structures/stack)
+
 [Queue](data-structures/queue)
