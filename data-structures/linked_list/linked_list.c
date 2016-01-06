@@ -1,27 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct Node Node;
+
 struct Node {
     int data;
-    struct Node* link;
+    Node* link;
 };
-
-typedef struct Node Node;
 
 Node* start = NULL;
 
 void insert_begin(int data)
 {
     Node* new = (Node*)malloc(sizeof(Node));
+    new -> data = data;
     if ( start == NULL )
     {
-        new -> data = data;
         new -> link = NULL;
         start = new;
     }
     else
     {
-        new -> data = data;
         new -> link = start;
         start = new;
     }
@@ -56,7 +55,7 @@ void insert_any_position(int data, int key)
     }
     if (ptr == NULL)
     {
-        printf("key not found\n");
+        printf("Key Not Found\n");
     }
     else
     {
@@ -85,7 +84,9 @@ int delete_begin()
 int delete_end()
 {
     Node* ptr;
+    Node* ptr1;
     ptr = start;
+    int del;
     if (ptr == NULL) {
         printf("list is empty. deletion not possible");
         return ;
@@ -94,18 +95,12 @@ int delete_end()
 
         while(ptr -> link != NULL)
         {
-            if(ptr->link->link == NULL)
-            {
-                int del =  ptr->link->data;
-                ptr->link = NULL;
-                return del;
-            }
-            ptr = ptr->link;
+           ptr1 = ptr;
+           ptr = ptr -> link;
         }
-        ptr->link = NULL;
+        ptr1->link = NULL;
         return ptr->data;
-
-   }
+    }
 }
 
 int delete_any_position(int key)
@@ -180,25 +175,68 @@ void sort()
     while(flag == 1);
 }
 
+void reverse()
+{
+    Node *p1, *p2, *p3;
+    p1 = start;
+    p2 = NULL;
+    while( p1 != NULL )
+    {
+        p3 = p2;
+        p2 = p1;
+        p1 = p1->link;
+        p2->link = p3;
+    }
+    start = p2;
+}
 
 int main(void)
 {
-    printf("<-- Linked list -->\n");
+    printf("<-- Linked List -->\n");
+    printf("1. Insert from beginning\n");
+    printf("2. Insert at end\n");
+    printf("3. Insert at any position\n");
+    printf("4. Delete from beginning\n");
+    printf("5. Delete at end\n");
+    printf("6. Delete at any position\n");
+    printf("7. Reverse\n");
+    printf("8. Sort\n");
+    printf("9. Count\n");
+    printf("10. Display\n");
+    while(1) {
+        printf("\nEnter choice: ");
+        scanf("%d", &x);
 
-
-    insert_begin(10);
-    insert_begin(9);
-    insert_begin(5);
-    insert_begin(40);
-    insert_any_position(60, 5);
-    insert_end(20);
-
-    int del = delete_end(20);
-    int del1 = delete_any_position(5);
-
-    count();
-
-    sort();
-
-    display();
+        switch(x) {
+            case 1: printf("Enter data to insert: ");
+                    scanf("%d", &data);
+                    insert_begin(data);
+                    break;
+            case 2: printf("Enter data to insert: ");
+                    scanf("%d", &data);
+                    insert_end(data);
+                    break;
+            case 3: printf("Enter position to insert: ");
+                    scanf("%d", &pos);
+                    printf("Enter data to insert: ");
+                    scanf("%d", &data);
+                    insert_any_position(pos, data);
+                    break;
+            case 4: delete_begin();
+                    break;
+            case 5: delete_end();
+                    break;
+            case 6: delete_any_position();
+                    break;
+            case 7: reverse();
+                    break;
+            case 8: sort();
+                    break;
+            case 9: count();
+                    break;
+            case 10: display();
+                     break;
+            case default: print("Wrong choice:\n"); break;
+        }
+    }
 }
