@@ -1,11 +1,14 @@
 # Make Output
 *.o
 stack-menu
-queue-menu
+queue
 sparse
 infix2postfix
 postfix-eval
 strrev
+tower_of_hanoi
+linked_list
+sparse-matrix
 
 # Input files
 *.in
