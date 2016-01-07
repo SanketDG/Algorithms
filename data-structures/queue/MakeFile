@@ -1,2 +1,0 @@
-queue-menu: queue.h
-	gcc -o $@ $^ $@.c -I.

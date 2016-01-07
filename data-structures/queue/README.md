@@ -1,5 +1,5 @@
 # Queue
 
-Queue Programs
+Queue Menu Program
 
-* Queue Menu Program > `make queue-menu`
+* Queue Menu Program > `make queue`
