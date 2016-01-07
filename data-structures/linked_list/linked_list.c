@@ -10,7 +10,7 @@ struct Node {
 
 Node* start = NULL;
 
-void insert_begin(int data)
+void insert_front(int data)
 {
     Node* new = (Node*)malloc(sizeof(Node));
     new -> data = data;
@@ -66,7 +66,7 @@ void insert_any_position(int data, int key)
 }
 
 
-int delete_begin()
+int delete_front()
 {
     Node* ptr;
     ptr = start;
@@ -103,7 +103,7 @@ int delete_end()
     }
 }
 
-int delete_any_position(int key)
+int delete_any_key(int key)
 {
     Node* ptr;
     Node* ptr1;
@@ -192,11 +192,13 @@ void reverse()
 
 int main(void)
 {
+    int choice, data, pos;
+
     printf("<-- Linked List -->\n");
-    printf("1. Insert from beginning\n");
+    printf("1. Insert at front\n");
     printf("2. Insert at end\n");
     printf("3. Insert at any position\n");
-    printf("4. Delete from beginning\n");
+    printf("4. Delete from front\n");
     printf("5. Delete at end\n");
     printf("6. Delete at any position\n");
     printf("7. Reverse\n");
@@ -205,12 +207,12 @@ int main(void)
     printf("10. Display\n");
     while(1) {
         printf("\nEnter choice: ");
-        scanf("%d", &x);
+        scanf("%d", &choice);
 
-        switch(x) {
+        switch(choice) {
             case 1: printf("Enter data to insert: ");
                     scanf("%d", &data);
-                    insert_begin(data);
+                    insert_front(data);
                     break;
             case 2: printf("Enter data to insert: ");
                     scanf("%d", &data);
@@ -222,11 +224,13 @@ int main(void)
                     scanf("%d", &data);
                     insert_any_position(pos, data);
                     break;
-            case 4: delete_begin();
+            case 4: delete_front();
                     break;
             case 5: delete_end();
                     break;
-            case 6: delete_any_position();
+            case 6: printf("Enter position to delete\n");
+                    scanf("%d", &data);
+                    delete_any_key(data);
                     break;
             case 7: reverse();
                     break;
@@ -236,7 +240,7 @@ int main(void)
                     break;
             case 10: display();
                      break;
-            case default: print("Wrong choice:\n"); break;
+            default: printf("Wrong choice:\n"); break;
         }
     }
 }
